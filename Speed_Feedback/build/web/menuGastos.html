@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Menu gastos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            body{
+                background:url("Imagenes/imagen1.jpg")fixed;
+            }
+
+        </style>
+    </head>
+    <body><center>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Proyecto</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="PaginadeBienvenida.jsp">Página de Bienvenida</a></li>
+                    <li class="active"><a href="menuGastos.html">Gastos</a></li>
+                    <li><a href="carros.html">Autos</a></li>
+                </ul>
+        </nav>
+        <br><br><br>
+        <h1 style="color: white">Panel gastos</h1>
+
+        <div id="opciones">
+            <input type="button" value="Ingresa Gasto" name="IngresaGasto" class="btn btn-success" onclick="location.href = 'nuevoGasto.jsp'"/> <br><br>
+            <input type="button" value="Gráfica de conceptos" name="ServletGastos" class="btn btn-success" onclick="location.href = 'ServletGastos'"/> <br><br>
+            <input type="button" value="Gráfica de cantidad gastada" name="ServletCantidad" class="btn btn-success" onclick="location.href = 'ServletCantidad'"/> <br><br>
+            <input type="button" value="Gráfica de prestadores de servicios" name="ServletPresta" class="btn btn-success" onclick="location.href = 'ServletPresta'"/> <br><br>
+
+
+
+        </div>
+
+    </center>
+</body>
+</html>

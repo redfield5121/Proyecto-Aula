@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            body{
+                background:url("Imagenes/imagen1.jpg")fixed;
+            }
+
+        </style>
+        <script>
+            function soloLetras(e)
+            {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "áéíóúabcdefghijklmnñopqrstuvwxyz ";
+                especiales = "8-37-39-46";
+                tecla_especial = false;
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+
+                if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                    return false;
+                }
+
+            }
+            function soloNumero(es) {
+                key = es.keyCode || es.which;
+                tecla = String.fromCharCode(key);
+                numero = "0123456789";
+                especiales = "8-37-38-46";
+                tecla_especial = false;
+                for (i in especiales)
+                {
+                    if (key === especiales[i]) {
+                        tecla_especial = true;
+                    }
+                }
+
+                if (numero.indexOf(tecla) == -1 && !tecla_especial) {
+                    return false;
+                }
+            }
+
+            function contraseña() {
+                var p1 = document.getElementById("Contraseña").value;
+                var p2 = document.getElementById("Contraseña2").value;
+                var espacios = false;
+                var cont = 0;
+
+                while (!espacios && (cont < p1.length)) {
+                    if (p1.charAt(cont) == " ")
+                        espacios = true;
+                    cont++;
+                }
+
+                if (espacios) {
+                    alert("La contraseña no puede contener espacios en blanco");
+                    return false;
+                }
+                if (p1.length == 0 || p2.length == 0) {
+                    alert("Los campos de la contraseña no pueden quedar vacios");
+                    return false;
+                }
+                if (p1 != p2) {
+                    alert("Las contraseñas deben de coincidir");
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand">Proyecto</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="InicioSesion.jsp">Iniciar Sesion</a></li>
+                    <li class="active"><a href="RegistroSesion.html">Registrate</a></li>
+                </ul>
+        </nav>
+        <div style="height: 50px"></div>
+        <div class="container" style="position: fixed">
+            <div class="col-md-offset-5 col-md-3">
+                <div class="loginFormato">
+                    <h1 style="color: white">Registrate</h1>
+                    <br>
+                    <form method="POST" action="Sesiones.jsp" onsubmit="return contraseña()">
+                        <input autocomplete="off" type="text" id="Nombre" name="Nombre" class="form-control input-sm chat-input" placeholder="Nombre(s)" onkeypress="return soloLetras(event)" required/>
+                        <br>
+                        <input autocomplete="off" type="text" name="ApellidoPaterno" id="ApellidoPaterno" class="form-control input-sm chat-input" onkeypress="return soloLetras(event)" placeholder="Apellido Paterno" required/>
+                        <br>
+                        <input autocomplete="off" type="text" name="ApellidoMaterno" id="ApellidoMaterno" class="form-control input-sm chat-input" onkeypress="return soloLetras(event)" placeholder="Apellido Materno" required/>
+                        <br>
+                        <input type="text" autocomplete="off" name="Celular" id="Celular" class="form-control input-sm chat-input" onkeypress="return soloNumero(event)" placeholder="Celular" maxlength="10" required/>
+                        <br>
+                        <input type="email" name="Correo" id="Correo" autocomplete="off" class="form-control input-sm chat-input" placeholder="Correo"  required/>
+                        <br>
+                        <input type="password" name="Contrasena" id="Contraseña" class="form-control input-sm chat-input" placeholder="Contraseña" required/>
+                        <br>
+                        <input type="password" id="Contraseña2" class="form-control input-sm chat-input" placeholder="Confirmar contraseña" required/>
+                        <br>
+                        <button type="submit" name="Alta" class="btn btn-success" value="Agregar">Registrar Sesion</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
